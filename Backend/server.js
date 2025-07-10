@@ -6,6 +6,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
+//Routes
+const authRoutes = require('./routes/authRoute');
+const contactRoutes = require('./routes/contactRoute')
 dotenv.config();
 const app=express();
 
@@ -33,6 +36,10 @@ app.use(cors({
 app.get('/', (req, res) => {
   res.send('Welcome to backend server');
 });
+
+app.use('/auth', authRoutes);
+app.use('/contacts', contactRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
