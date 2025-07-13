@@ -33,25 +33,24 @@ A web application where users can **request help for local community issues** or
 
 # 🗂️ Project Structure
 
-# 📁 Frontend (`/client`)
+### 📁 Frontend (`/client`)
 /client
-│
-├── /public
-├── /src
-│ ├── /components # Reusable UI components
-│ ├── /pages # Route-level pages
-│ ├── /services # Axios API calls
-│ ├── /context # Auth & global context
-│ └── App.js
-│
-└── package.json
+|
+- /public
+- /src
+- /components # Reusable UI components
+- /pages # Route-level pages
+-  /services # Axios API calls
+- /context # Auth & global context
+- App.js
+- package.json
 
-# 📁 Backend (`/server`)
+### 📁 Backend (`/server`)
 /server
 │
-├── /controllers # Business logic
-├── /models # Mongoose schemas
-├── /routes # Express routes
-├── /middleware # Auth, role checks
-├── /config # DB connection
-└── server.js
+- /controllers # Business logic
+─ /models # Mongoose schemas
+─ /routes # Express routes
+─ /middleware # Auth, role checks
+─ /config # DB connection
+─ server.js
