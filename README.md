@@ -49,8 +49,8 @@ A web application where users can **request help for local community issues** or
 /server
 │
 - /controllers # Business logic
-─ /models # Mongoose schemas
-─ /routes # Express routes
-─ /middleware # Auth, role checks
-─ /config # DB connection
-─ server.js
+- /models # Mongoose schemas
+- /routes # Express routes
+- /middleware # Auth, role checks
+- /config # DB connection
+- server.js
