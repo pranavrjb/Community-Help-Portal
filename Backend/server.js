@@ -6,15 +6,17 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
+const app = express();
+
+app.use(express.json());
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
 
 //Routes
 const authRoutes = require('./routes/authRoute');
 const contactRoutes = require('./routes/contactRoute')
 const userRoutes =require('./routes/userRoute')
 
-app.use(express.json());
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
 
 // Connect to db
 mongoose.connect(MONGO_URI, {

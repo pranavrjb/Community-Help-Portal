@@ -1,5 +1,5 @@
 const User=require('../Models/User.js');
-const {roles} = require('../utils/constants,js');
+const {roles} = require('../utils/constants.js');
 
 const getAllUsers = async (req, res) => {
     try {
