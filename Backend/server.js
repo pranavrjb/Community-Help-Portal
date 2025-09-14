@@ -29,7 +29,7 @@ mongoose.connect(MONGO_URI, {
 });
  app.use(morgan('dev'));
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
@@ -37,8 +37,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to backend server');
 });
 
-app.use('/auth', authRoutes);
-app.use('/contacts', contactRoutes);
+app.use('/', authRoutes);
+app.use('/', contactRoutes);
 
 
 app.listen(PORT, () => {
