@@ -6,11 +6,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
+
 //Routes
 const authRoutes = require('./routes/authRoute');
 const contactRoutes = require('./routes/contactRoute')
-dotenv.config();
-const app=express();
+const userRoutes =require('./routes/userRoute')
 
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 app.use('/', authRoutes);
 app.use('/', contactRoutes);
-
+app.use('/',userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
