@@ -14,9 +14,9 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase
 
 //Routes
 const authRoutes = require('./routes/authRoute');
-const contactRoutes = require('./routes/contactRoute')
-const userRoutes =require('./routes/userRoute')
-
+const contactRoutes = require('./routes/contactRoute');
+const userRoutes =require('./routes/userRoute');
+const helpRoutes = require('./routes/helpRoute');
 
 // Connect to db
 mongoose.connect(MONGO_URI, {
@@ -42,6 +42,7 @@ app.get('/', (req, res) => {
 app.use('/', authRoutes);
 app.use('/', contactRoutes);
 app.use('/',userRoutes);
+app.use('/', helpRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
