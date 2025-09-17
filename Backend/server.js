@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
 
 //Routes
+const errorHandler = require('./Middleware/errorHandler.js');
 const authRoutes = require('./routes/authRoute');
 const contactRoutes = require('./routes/contactRoute');
 const userRoutes =require('./routes/userRoute');
@@ -39,10 +40,17 @@ app.get('/', (req, res) => {
   res.send('Welcome to backend server');
 });
 
+app.get('/error-test', (req, res, next) => {
+  const err= new Error("This is a test error!");
+  err.statusCode=418;
+  next(err);
+});
+
 app.use('/', authRoutes);
 app.use('/', contactRoutes);
 app.use('/',userRoutes);
 app.use('/', helpRoutes);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
